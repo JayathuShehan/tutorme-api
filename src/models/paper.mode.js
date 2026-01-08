@@ -9,7 +9,7 @@ const papersSchema = mongoose.Schema(
       index: true,
       unique: true,
     },
-    description: {
+    medium: {
       type: String,
       trim: true,
     },
