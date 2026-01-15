@@ -114,17 +114,7 @@ const createTutor = {
     grades: Joi.array().items(Joi.string()).min(1).required(),
     subjects: Joi.array().items(Joi.string()).min(1).required(),
 
-    tutorType: Joi.string()
-      .valid(
-        'Full Time Student',
-        'Undergraduate',
-        'Part Time Tutor',
-        'Full Time Tutor',
-        'Ex/Current MOE Teacher',
-        'Ex-MOE Teacher',
-        'Current MOE Teacher'
-      )
-      .required(),
+    tutorType: Joi.array().items(Joi.string()).min(1).required(),
     yearsExperience: Joi.number().integer().min(0).max(50).required(),
     highestEducation: Joi.string()
       .valid(
@@ -160,7 +150,12 @@ const createTutor = {
 };
 
 const getTutors = {
-  query: Joi.object().keys({}),
+  query: Joi.object().keys({
+    title: Joi.string(),
+    sortBy: Joi.string(),
+    limit: Joi.number().integer(),
+    page: Joi.number().integer(),
+  }),
 };
 
 const getTutor = {
@@ -267,7 +262,7 @@ const updateTutor = {
       ),
 
       // 3. Academic Qualifications & Experience
-      tutorType: Joi.string(),
+      tutorType: Joi.array().items(Joi.string()).min(1).required(),
       yearsExperience: Joi.number().integer().min(0).max(50),
       highestEducation: Joi.string().valid(
         'PhD',
