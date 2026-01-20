@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const createPaper = {
   body: Joi.object().keys({
     title: Joi.string().required(),
-    description: Joi.string().required(),
+    medium: Joi.string().required(),
     subject: Joi.string().required(),
     grade: Joi.string().required(),
     year: Joi.string().required(),
@@ -46,7 +46,7 @@ const updatePaper = {
   body: Joi.object()
     .keys({
       title: Joi.string(),
-      description: Joi.string(),
+      medium: Joi.string(),
       subject: Joi.string(),
       grade: Joi.string(),
       year: Joi.string(),

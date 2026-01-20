@@ -134,19 +134,22 @@ const tutorSchema = mongoose.Schema(
       },
     ],
 
-    tutorType: {
-      type: String,
-      enum: [
-        'Full Time Student',
-        'Undergraduate',
-        'Part Time Tutor',
-        'Full Time Tutor',
-        'Ex/Current MOE Teacher',
-        'Ex-MOE Teacher',
-        'Current MOE Teacher',
-      ],
-      required: true,
-    },
+    tutorType: [
+      {
+        type: String,
+        enum: [
+          'Full Time Student',
+          'Undergraduate',
+          'Part Time Tutor',
+          'Full Time Tutor',
+          'Ex/Current MOE Teacher',
+          'Ex-MOE Teacher',
+          'Current MOE Teacher',
+        ],
+        required: true,
+      },
+    ],
+
     yearsExperience: {
       type: Number,
       min: 0,
