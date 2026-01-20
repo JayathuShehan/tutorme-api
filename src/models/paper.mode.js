@@ -22,7 +22,7 @@ const papersSchema = mongoose.Schema(
       ref: 'Grade',
     },
     year: {
-      type: String,
+      type: Number,
     },
     url: {
       type: String,
