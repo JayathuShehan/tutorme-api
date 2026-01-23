@@ -7,7 +7,7 @@ const createPaper = {
     medium: Joi.string().required(),
     subject: Joi.string().required(),
     grade: Joi.string().required(),
-    year: Joi.string().required(),
+    year: Joi.number().required(),
     url: Joi.string().required(),
   }),
 };
@@ -20,6 +20,7 @@ const getPapers = {
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
+    order: Joi.string().valid('asc', 'desc').default('desc'),
   }),
 };
 
@@ -49,7 +50,7 @@ const updatePaper = {
       medium: Joi.string(),
       subject: Joi.string(),
       grade: Joi.string(),
-      year: Joi.string(),
+      year: Joi.number(),
       url: Joi.string(),
     })
     .min(1),
