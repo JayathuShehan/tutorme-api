@@ -114,7 +114,10 @@ const createTutor = {
     grades: Joi.array().items(Joi.string()).min(1).required(),
     subjects: Joi.array().items(Joi.string()).min(1).required(),
 
-    tutorType: Joi.array().items(Joi.string()).min(1).required(),
+    tutorType: Joi.array()
+      .items(Joi.string().valid('Full-Time', 'Part-Time', 'Online', 'School Teacher Tutors', 'Group Tutors', 'Exam Coaches'))
+      .min(1)
+      .required(),
     yearsExperience: Joi.number().integer().min(0).max(50).required(),
     highestEducation: Joi.string()
       .valid(
@@ -266,14 +269,11 @@ const updateTutor = {
       yearsExperience: Joi.number().integer().min(0).max(50),
       highestEducation: Joi.string().valid(
         'PhD',
-        'Diploma',
         'Masters',
-        'Undergraduate',
         'Bachelor Degree',
+        'Undergraduate',
         'Diploma and Professional',
-        'JC/A Levels',
-        'Poly',
-        'Others'
+        'AL'
       ),
       academicDetails: Joi.string().allow('').max(1000),
 
