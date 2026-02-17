@@ -150,17 +150,7 @@ const tutorSchema = mongoose.Schema(
     },
     highestEducation: {
       type: String,
-      enum: [
-        'PhD',
-        'Diploma',
-        'Masters',
-        'Undergraduate',
-        'Bachelor Degree',
-        'Diploma and Professional',
-        'JC/A Levels',
-        'Poly',
-        'Others',
-      ],
+      enum: ['PhD', 'Masters', 'Bachelor Degree', 'Undergraduate', 'Bachelor Degree', 'Diploma and Professional', 'AL'],
       required: true,
     },
     academicDetails: {
