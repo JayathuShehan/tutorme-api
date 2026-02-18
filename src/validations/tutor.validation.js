@@ -120,17 +120,7 @@ const createTutor = {
       .required(),
     yearsExperience: Joi.number().integer().min(0).max(50).required(),
     highestEducation: Joi.string()
-      .valid(
-        'PhD',
-        'Diploma',
-        'Masters',
-        'Undergraduate',
-        'Bachelor Degree',
-        'Diploma and Professional',
-        'JC/A Levels',
-        'Poly',
-        'Others'
-      )
+      .valid('PhD', 'Masters', 'Bachelor Degree', 'Undergraduate', 'Bachelor Degree', 'Diploma and Professional', 'AL')
       .required(),
     academicDetails: Joi.string().allow('').max(1000),
 

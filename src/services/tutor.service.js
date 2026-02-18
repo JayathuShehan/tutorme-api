@@ -30,7 +30,13 @@ const queryTutors = async (filter, options) => {
     query.tutorType = filter.tutorType;
   }
 
-  const tutors = await Tutor.paginate(query, options);
+  const sortOptions = { ...options };
+
+  if (!sortOptions.sortBy) {
+    sortOptions.sortBy = 'createdAt:desc';
+  }
+
+  const tutors = await Tutor.paginate(query, sortOptions);
   return tutors;
 };
 
